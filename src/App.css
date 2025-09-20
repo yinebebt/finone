@@ -1,0 +1,609 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Helvetica Rounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f5f5f5;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background: #1C3664;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.nav {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.nav button {
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(255,255,255,0.3);
+  background: transparent;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nav button:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.nav button.active {
+  background: #D4560F;
+  color: white;
+  border-color: #D4560F;
+  font-weight: 400;
+}
+
+.main {
+  flex: 1;
+  padding: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Dashboard */
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.dashboard-icon {
+  color: #D4560F;
+}
+
+.dashboard-header h2 {
+  color: #333;
+  margin: 0;
+}
+
+.visibility-btn {
+  background: transparent;
+  border: 1px solid #ddd;
+  color: #666;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visibility-btn:hover {
+  background: #f5f5f5;
+  border-color: #999;
+}
+
+.totals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.total-card {
+  background: #fafafa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  text-align: center;
+  border: 1px solid #e8e8e8;
+  cursor: help;
+  transition: all 0.2s;
+}
+
+.total-card:hover {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  border-color: #D4560F;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.currency-icon {
+  color: #1C3664;
+}
+
+.total-card h3 {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.total-card .amount {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1C3664;
+}
+
+.recent-accounts {
+  background: #fafafa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  border: 1px solid #e8e8e8;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.section-icon {
+  color: #D4560F;
+}
+
+.recent-accounts h3 {
+  margin: 0;
+  color: #333;
+}
+
+.account-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.account-item:last-child {
+  border-bottom: none;
+}
+
+.account-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.account-name-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.account-type-icon {
+  color: #1C3664;
+}
+
+.account-name {
+  font-weight: 500;
+}
+
+.account-balance {
+  font-size: 0.9rem;
+  color: #1C3664;
+}
+
+.last-updated {
+  font-size: 0.8rem;
+  color: #999;
+}
+
+/* Accounts */
+.accounts-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.add-btn {
+  background: #D4560F;
+  color: white;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.2s;
+  font-weight: 400;
+}
+
+.add-btn:hover {
+  background: #e55a1b;
+}
+
+.accounts-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.account-card {
+  background: #fafafa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  border: 1px solid #e8e8e8;
+}
+
+.account-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.account-header h3 {
+  flex: 1;
+  color: #333;
+}
+
+.account-type {
+  background: #f0f0f0;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: #666;
+  text-transform: capitalize;
+}
+
+.account-balance {
+  margin-bottom: 1rem;
+}
+
+.account-balance .balance {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #1C3664;
+  display: block;
+}
+
+.account-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.update-btn {
+  background: #D4560F;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  flex: 1;
+  font-weight: 400;
+}
+
+.update-btn:hover {
+  background: #B8480D;
+}
+
+.delete-btn {
+  background: #1C3664;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+.delete-btn:hover {
+  background: #152a54;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #fafafa;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+  border: 1px solid #e0e0e0;
+}
+
+.modal h2 {
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modal input,
+.modal select,
+.modal textarea {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.modal textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.modal label {
+  font-weight: 500;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.modal-actions button {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modal-actions button[type="submit"] {
+  background: #1C3664;
+  color: white;
+  border-color: #1C3664;
+  font-weight: 400;
+}
+
+.modal-actions button[type="submit"]:hover {
+  background: #152a54;
+}
+
+.modal-actions button[type="button"]:hover {
+  background: #f5f5f5;
+}
+
+/* Export/Import */
+.export-import {
+  background: #fafafa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  margin-top: 1rem;
+  border: 1px solid #e8e8e8;
+}
+
+.export-import h3 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.export-import-buttons {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.export-btn,
+.import-btn {
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.export-btn {
+  background: #D4560F;
+  color: white;
+}
+
+.export-btn:hover {
+  background: #B8480D;
+}
+
+.import-btn {
+  background: #1C3664;
+  color: white;
+}
+
+.import-btn:hover {
+  background: #152a54;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    padding: 0.75rem 1rem 1rem 1rem;
+  }
+
+  .header h1 {
+    margin-top: 0.5rem;
+  }
+
+  .main {
+    padding: 0.5rem;
+  }
+
+  .accounts-header {
+    gap: 0.75rem;
+  }
+
+  .modal {
+    margin: 1rem;
+  }
+
+  .totals-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .account-actions {
+    flex-direction: column;
+  }
+}
+
+/* App Info Modal */
+.app-info-modal {
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.app-info-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.app-description p {
+  color: #666;
+  line-height: 1.5;
+}
+
+.app-features ul {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.app-features li {
+  color: #666;
+  margin-bottom: 0.25rem;
+}
+
+.app-features h4,
+.developer-info h4 {
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.developer-info p {
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.developer-links {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.github-link {
+  background: #333;
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.github-link:hover {
+  background: #555;
+}
+
+.app-version {
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.app-version small {
+  color: #999;
+}
+
+/* Footer */
+.footer {
+  background: #f5f5f5;
+  border-top: 1px solid #e0e0e0;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+}
+
+.footer-info-btn {
+  background: transparent;
+  border: 1px solid #ddd;
+  color: #666;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.footer-info-btn:hover {
+  background: #e8e8e8;
+  border-color: #999;
+  color: #333;
+}
